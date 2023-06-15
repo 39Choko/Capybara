@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "fr.chokojoestar.capymod.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"CapyMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
