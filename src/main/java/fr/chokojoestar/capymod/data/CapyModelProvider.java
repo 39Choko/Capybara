@@ -1,5 +1,7 @@
 package fr.chokojoestar.capymod.data;
 
+import fr.chokojoestar.capymod.Register;
+import fr.chokojoestar.capymod.item.CapyItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
@@ -13,12 +15,11 @@ public class CapyModelProvider extends FabricModelProvider {
 
    @Override
    public void generateBlockStateModels(BlockStateModelGenerator BSModelGenerator) {
+      Register.registerSpawnEgg(BSModelGenerator, CapyItems.DEV_MOB_SPAWN_EGG);
    }
 
    @Override
    public void generateItemModels(ItemModelGenerator itemModelGenerator) {
    }
-   
-
 
 }
