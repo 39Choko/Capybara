@@ -1,7 +1,5 @@
 package fr.chokojoestar.capymod.entity.custom.DevMob;
 
-import org.jetbrains.annotations.Nullable;
-
 import fr.chokojoestar.capymod.entity.CapyEntities;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
@@ -12,30 +10,32 @@ import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager.ControllerRegistrar;
 import software.bernie.geckolib.core.animation.Animation;
 import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.RawAnimation;
-import software.bernie.geckolib.core.animation.AnimatableManager.ControllerRegistrar;
 import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class DevMobEntity extends AnimalEntity implements GeoEntity {
-   private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+
+   private AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
    public DevMobEntity(EntityType<? extends AnimalEntity> entityType, World world) {
       super(entityType, world);
    }
 
-   public static DefaultAttributeContainer.Builder setAttributes(){
-      return AnimalEntity.createMobAttributes()
-         .add(EntityAttributes.GENERIC_MAX_HEALTH, 20.00)
-         .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4f)
-         .add(EntityAttributes.GENERIC_ATTACK_SPEED, 4f)
-         .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5f);
+   public static DefaultAttributeContainer.Builder setAttributes() {
+      return AnimalEntity
+            .createMobAttributes()
+            .add(EntityAttributes.GENERIC_MAX_HEALTH, 20.00)
+            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4f)
+            .add(EntityAttributes.GENERIC_ATTACK_SPEED, 4f)
+            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5f);
    }
 
    @Override
@@ -61,16 +61,19 @@ public class DevMobEntity extends AnimalEntity implements GeoEntity {
 
    @Override
    public void registerControllers(ControllerRegistrar controllerRegistrar) {
-      controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
+      controllerRegistrar.add(
+            new AnimationController<>(this, "controller", 0, this::predicate));
    }
 
-   private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState){
-      if(tAnimationState.isMoving()){
-         tAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.dev_mob.walk", Animation.LoopType.LOOP));
+   private PlayState predicate(AnimationState<?> tAnimationState) {
+      if (tAnimationState.isMoving()) {
+         tAnimationState.getController()
+               .setAnimation(RawAnimation.begin().then("animation.dev_mob.walk", Animation.LoopType.LOOP));
+         return PlayState.CONTINUE;
       }
 
-      tAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.dev_mob.idle", Animation.LoopType.LOOP));
+      tAnimationState.getController()
+            .setAnimation(RawAnimation.begin().then("animation.dev_mob.idle", Animation.LoopType.LOOP));
       return PlayState.CONTINUE;
    }
-   
 }

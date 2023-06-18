@@ -1,4 +1,4 @@
-package fr.chokojoestar.capymod.entity.custom.DevMob;
+package fr.chokojoestar.capymod.entity.custom.Capybara;
 
 import fr.chokojoestar.capymod.Register;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -7,19 +7,19 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-public class DevMobRenderer extends GeoEntityRenderer<DevMobEntity> {
+public class CapybaraRenderer extends GeoEntityRenderer<CapybaraEntity> {
 
-   public DevMobRenderer(Context renderManager) {
-      super(renderManager, new DevMobModel());
+   public CapybaraRenderer(Context renderManager) {
+      super(renderManager, new CapybaraModel());
    }
 
    @Override
-   public Identifier getTextureLocation(DevMobEntity animatable) {
-      return Register.registerLocation("textures/entity", "dev_mob.png");
+   public Identifier getTextureLocation(CapybaraEntity animatable) {
+      return Register.registerLocation("textures/entity", "capybara.png");
    }
 
    @Override
-   public void render(DevMobEntity entity, float entityYaw, float partialTick, MatrixStack poseStack,
+   public void render(CapybaraEntity entity, float entityYaw, float partialTick, MatrixStack poseStack,
          VertexConsumerProvider bufferSource, int packedLight) {
       if (entity.isBaby()) {
          poseStack.scale(0.4f, 0.4f, 0.4f);
@@ -27,4 +27,5 @@ public class DevMobRenderer extends GeoEntityRenderer<DevMobEntity> {
 
       super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
    }
+
 }

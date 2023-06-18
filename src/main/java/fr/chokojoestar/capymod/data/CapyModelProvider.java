@@ -14,12 +14,15 @@ public class CapyModelProvider extends FabricModelProvider {
    }
 
    @Override
-   public void generateBlockStateModels(BlockStateModelGenerator BSModelGenerator) {
-      Register.registerSpawnEgg(BSModelGenerator, CapyItems.DEV_MOB_SPAWN_EGG);
+   public void generateBlockStateModels(BlockStateModelGenerator BSModelGen) {
+      Register.registerSpawnEggData(BSModelGen, CapyItems.DEV_MOB_SPAWN_EGG);
+      Register.registerSpawnEggData(BSModelGen, CapyItems.CAPYBARA_SPAWN_EGG);
+
    }
 
    @Override
-   public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+   public void generateItemModels(ItemModelGenerator IModelGen) {
+      Register.registerItemData(IModelGen, CapyItems.DEV_ITEM);
    }
 
 }

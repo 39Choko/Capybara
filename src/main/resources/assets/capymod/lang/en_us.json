@@ -1,3 +1,6 @@
 {
-   "item.capymod.dev_item": "Dev Item"
+  "item.capymod.dev_item": "Dev Item",
+  "item.capymob.dev_mob_spawn_egg": "Dev Mob Spawn Egg",
+  "item.capymob.capybara_spawn_egg": "Capybara Spawn Egg",
+  "entity.capymod.capybara": "Capybara"
 }

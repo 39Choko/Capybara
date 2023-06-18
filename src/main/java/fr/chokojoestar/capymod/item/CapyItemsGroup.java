@@ -16,6 +16,8 @@ public class CapyItemsGroup {
                .icon(() -> new ItemStack(CapyItems.DEV_ITEM))
                .displayName(Text.literal("Capybara Mod")).entries((displayContext, entries) -> {
                   entries.add(CapyItems.DEV_ITEM);
+                  entries.add(CapyItems.CAPYBARA_SPAWN_EGG);
+                  entries.add(CapyItems.DEV_MOB_SPAWN_EGG);
                }).build());
 
    public static void registerItemsGroup() {
