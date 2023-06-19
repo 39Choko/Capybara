@@ -4,8 +4,8 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
+import net.minecraft.data.client.Model;
 import net.minecraft.data.client.ModelIds;
-import net.minecraft.data.client.Models;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -27,8 +27,8 @@ public class Register {
       BSModelGen.registerParentedItemModel(egg, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
    }
 
-   public static void registerItemData(ItemModelGenerator IModelGen, Item item) {
-      IModelGen.register(item, Models.GENERATED);
+   public static void registerItemData(ItemModelGenerator IModelGen, Item item, Model models) {
+      IModelGen.register(item, models);
    }
 
    public static Item registerItem(String name, Item item) {
