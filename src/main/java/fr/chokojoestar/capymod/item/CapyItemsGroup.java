@@ -13,11 +13,10 @@ public class CapyItemsGroup {
    public static ItemGroup CAPYBARA = Registry.register(Registries.ITEM_GROUP,
          new Identifier(CapyMod.MOD_ID, "capybara"),
          FabricItemGroup.builder()
-               .icon(() -> new ItemStack(CapyItems.DEV_ITEM))
+               .icon(() -> new ItemStack(CapyItems.STAFF))
                .displayName(Text.literal("Capybara Mod")).entries((displayContext, entries) -> {
-                  entries.add(CapyItems.DEV_ITEM);
                   entries.add(CapyItems.CAPYBARA_SPAWN_EGG);
-                  entries.add(CapyItems.DEV_MOB_SPAWN_EGG);
+                  entries.add(CapyItems.STAFF);
                }).build());
 
    public static void registerItemsGroup() {
