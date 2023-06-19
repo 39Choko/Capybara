@@ -10,7 +10,6 @@ import fr.chokojoestar.capymod.entity.CapyEntities;
 import fr.chokojoestar.capymod.item.CapyItems;
 import net.minecraft.entity.EntityStatuses;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ai.goal.AnimalMateGoal;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.FollowParentGoal;
@@ -74,12 +73,12 @@ public class CapybaraEntity extends TameableEntity implements GeoEntity {
    @Override
    public ActionResult interactMob(PlayerEntity player, Hand hand) {
       ItemStack itemStack = player.getStackInHand(hand);
-      Item item = itemStack.getItem();
+      Item item = itemStack.getItem(); 
 
       /* TAMING SYSTEM */
       if (!this.isTamed() && isBreedingItem(itemStack)) {
          decrementItem(player, itemStack, 1);
-         if (!this.getWorld().isClient) {
+         if (!this.getWorld().isClient()) {
             if (this.random.nextInt(10) == 0) {
                this.setOwner(player);
                this.getWorld().sendEntityStatus(this, EntityStatuses.ADD_POSITIVE_PLAYER_REACTION_PARTICLES);
@@ -92,28 +91,22 @@ public class CapybaraEntity extends TameableEntity implements GeoEntity {
 
       if (this.isTamed() && this.isOwner(player)) {
          /* REGEN SYSTEM */
-         if (this.isBreedingItem(itemStack) && this.getHealth() < this.getMaxHealth()) {
+         if (isBreedingItem(itemStack) && this.getHealth() < this.getMaxHealth()) {
             decrementItem(player, itemStack, 1);
             this.heal(item.getFoodComponent().getHunger());
             return ActionResult.SUCCESS;
          }
 
          /* RIDING SYSTEM */
-         if (MOUNT.contains(item)) {
-            if (item != CapyItems.STAFF) {
-               decrementItem(player, itemStack, 1);
-            } else {
-               itemStack.damage(1, this, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
-
-            }
-            if (!this.getWorld().isClient)
+         if (!MOUNT.contains(item) && !isBreedingItem(itemStack)) {
+            if (!this.getWorld().isClient())
                player.startRiding(this);
             return ActionResult.SUCCESS;
          }
 
          /* SITTING SYSTEM */
-         if (!isBreedingItem(itemStack) && !MOUNT.contains(item)) {
-            if (!this.getWorld().isClient) {
+         if (!isBreedingItem(itemStack) && MOUNT.contains(item)) {
+            if (!this.getWorld().isClient()) {
                this.setSitting(!this.isSitting());
             }
             return ActionResult.SUCCESS;
