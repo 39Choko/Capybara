@@ -7,8 +7,10 @@ import org.jetbrains.annotations.Nullable;
 import com.google.common.collect.Sets;
 
 import fr.chokojoestar.capymod.entity.CapyEntities;
+import fr.chokojoestar.capymod.item.CapyItems;
 import net.minecraft.entity.EntityStatuses;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ai.goal.AnimalMateGoal;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.FollowParentGoal;
@@ -44,7 +46,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class CapybaraEntity extends TameableEntity implements GeoEntity {
    private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(Items.MELON_SLICE, Items.CARROT);
-   private static final Set<Item> MOUNT = Sets.newHashSet(Items.STICK, Items.BAMBOO);
+   private static final Set<Item> MOUNT = Sets.newHashSet(Items.STICK, Items.BAMBOO, CapyItems.STAFF);
    private AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
    public CapybaraEntity(EntityType<? extends TameableEntity> entityType, World world) {
@@ -98,7 +100,12 @@ public class CapybaraEntity extends TameableEntity implements GeoEntity {
 
          /* RIDING SYSTEM */
          if (MOUNT.contains(item)) {
-            decrementItem(player, itemStack, 1);
+            if (item != CapyItems.STAFF) {
+               decrementItem(player, itemStack, 1);
+            } else {
+               itemStack.damage(1, this, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+
+            }
             if (!this.getWorld().isClient)
                player.startRiding(this);
             return ActionResult.SUCCESS;
