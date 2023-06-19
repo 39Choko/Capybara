@@ -5,13 +5,16 @@
 	"name": "Capybara Mod",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"ChokoJoestar"
+		"ChokoJoestar",
+		"TemmmieChan",
+		"FluxyLeCapybara"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/ChokoJoestar/CapyMod",
+		"sources": "https://github.com/ChokoJoestar/CapyMod/",
+		"issues": "https://github.com/ChokoJoestar/CapyMod/issues"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/capymod/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -29,13 +32,10 @@
 		"capymod.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14.21",
-		"minecraft": "~1.20",
-		"java": ">=17",
+		"fabricloader": ">=${loader_version}",
+		"minecraft": "~${minecraft_version}",
+		"java": ">=${java_version}",
 		"geckolib": ">=4.1.1",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
