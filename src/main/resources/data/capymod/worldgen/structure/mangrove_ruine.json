@@ -1,6 +1,9 @@
 {
   "type": "minecraft:jigsaw",
-  "biomes": ["minecraft:swamp", "minecraft:mangrove_swamp"],
+  "biomes": [
+    "minecraft:swamp",
+    "minecraft:mangrove_swamp"
+  ],
   "step": "surface_structures",
   "spawn_overrides": {},
   "terrain_adaptation": "beard_thin",

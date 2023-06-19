@@ -1,13 +1,12 @@
 {
-  "name": "capymod:mangrove_ruine",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "capymod:mangrove_ruine",
         "projection": "rigid",
+        "location": "capymod:mangrove_ruine",
         "processors": "minecraft:empty"
       }
     }
