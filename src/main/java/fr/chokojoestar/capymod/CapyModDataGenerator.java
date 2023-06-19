@@ -1,6 +1,8 @@
 package fr.chokojoestar.capymod;
 
+import fr.chokojoestar.capymod.data.CapyEnglishLangProvider;
 import fr.chokojoestar.capymod.data.CapyModelProvider;
+import fr.chokojoestar.capymod.data.CapyRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -10,5 +12,7 @@ public class CapyModDataGenerator implements DataGeneratorEntrypoint {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
 		pack.addProvider(CapyModelProvider::new);
+		pack.addProvider(CapyEnglishLangProvider::new);
+		pack.addProvider(CapyRecipeProvider::new);
 	}
 }
