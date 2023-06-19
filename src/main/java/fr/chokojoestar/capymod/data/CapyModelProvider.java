@@ -19,7 +19,6 @@ public class CapyModelProvider extends FabricModelProvider {
    }
 
    @Override
-   public void generateItemModels(ItemModelGenerator IModelGen) {
-   }
+   public void generateItemModels(ItemModelGenerator IModelGen) {}
 
 }

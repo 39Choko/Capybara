@@ -12,7 +12,7 @@ public class CapyModDataGenerator implements DataGeneratorEntrypoint {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
 		pack.addProvider(CapyModelProvider::new);
-		pack.addProvider(CapyEnglishLangProvider::new);
 		pack.addProvider(CapyRecipeProvider::new);
+		pack.addProvider(CapyEnglishLangProvider::new);
 	}
 }

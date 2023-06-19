@@ -11,10 +11,11 @@ import net.minecraft.util.Identifier;
 
 public class CapyItemsGroup {
    public static ItemGroup CAPYBARA = Registry.register(Registries.ITEM_GROUP,
-         new Identifier(CapyMod.MOD_ID, "capybara"),
-         FabricItemGroup.builder()
-               .icon(() -> new ItemStack(CapyItems.STAFF))
-               .displayName(Text.literal("Capybara Mod")).entries((displayContext, entries) -> {
+         new Identifier(CapyMod.MOD_ID, "capybara"), // id itemGroup
+         FabricItemGroup.builder().icon(() -> new ItemStack(CapyItems.STAFF)) // Icon
+               .displayName(Text.literal("Capybara Mod")) // Text
+               .entries((displayContext, entries) -> {
+                  /* ITEMGROUP */
                   entries.add(CapyItems.CAPYBARA_SPAWN_EGG);
                   entries.add(CapyItems.STAFF);
                }).build());
