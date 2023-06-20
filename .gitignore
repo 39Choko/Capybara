@@ -4,6 +4,7 @@ tmp
 build/
 out/
 classes/
+.env
 
 # eclipse
 
