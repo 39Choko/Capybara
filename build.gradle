@@ -68,8 +68,8 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation "com.terraformersmc:modmenu:${modMenuVersion}"
-   modImplementation "software.bernie.geckolib:geckolib-fabric-${minecraft_version}:4.2"
+	modImplementation "com.terraformersmc:modmenu:${project.modMenuVersion}"
+   modImplementation "software.bernie.geckolib:geckolib-fabric-${project.minecraft_version}:4.2"
 
 	// Uncomment the following line to enable the deprecated Fabric API modules. 
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
@@ -119,5 +119,20 @@ publishing {
 		// Notice: This block does NOT have the same function as the block in the top level.
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
+	}
+}
+
+modrinth {
+	syncBodyFrom = rootProject.file("README.md").text
+	token = System.getenv("MODRINTH_TOKEN")
+	uploadFile = remapJar
+	// name = "[${project.minecraft_version}] Capybara Mod v${project.mod_version}"
+	projectId = "TVSdsuq1"
+	versionNumber = project.mod_version
+	versionType = "release"
+	gameVersions = ["1.20"]
+	loaders = ["fabric"]
+	dependencies {
+		required.project "geckolib"
 	}
 }
