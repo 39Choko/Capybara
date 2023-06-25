@@ -7,5 +7,5 @@ import net.minecraft.entity.EntityType;
 public class CapyEntities {
 
   public static final EntityType<CapybaraEntity> CAPYBARA = Register.registerEntity("capybara", CapybaraEntity::new,
-      0.8f, 0.9f);
+      0.8f, 0.8f);
 }
