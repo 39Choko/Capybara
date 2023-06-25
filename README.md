@@ -11,8 +11,8 @@
 [![Modrinth](https://img.shields.io/modrinth/dt/TVSdsuq1?logo=modrinth)](https://modrinth.com/mod/TVSdsuq1)
 [![Modrinth](https://img.shields.io/modrinth/game-versions/TVSdsuq1?logo=modrinth)](https://modrinth.com/mod/TVSdsuq1)
 
-[![Downloads](https://cf.way2muchnoise.eu/full_877375_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/capybara-fabric)
-[![Versions](https://cf.way2muchnoise.eu/versions/877375_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/capybara-fabric)
+[![Downloads](https://cf.way2muchnoise.eu/full_877375_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/fabric-capybara)
+[![Versions](https://cf.way2muchnoise.eu/versions/877375_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/fabric-capybara)
 
 </div>
 
