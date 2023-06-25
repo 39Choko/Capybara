@@ -11,6 +11,7 @@ import net.minecraft.world.Heightmap.Type;
 import net.minecraft.world.biome.BiomeKeys;
 
 public class CapyEntityGen {
+
    public static void addSpawn() {
       BiomeModifications.addSpawn(
             BiomeSelectors.includeByKey(BiomeKeys.JUNGLE, BiomeKeys.MANGROVE_SWAMP, BiomeKeys.SPARSE_JUNGLE),

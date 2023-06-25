@@ -11,5 +11,4 @@ public class CapyModClient implements ClientModInitializer {
    public void onInitializeClient() {
       EntityRendererRegistry.register(CapyEntities.CAPYBARA, CapybaraRenderer::new);
    }
-
 }

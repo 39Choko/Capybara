@@ -1,8 +1,7 @@
 package fr.chokojoestar.capymod.mixin;
 
-import org.spongepowered.asm.mixin.Mixin;
-
 import net.minecraft.server.MinecraftServer;
+import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(MinecraftServer.class)
 public class CapyMixin {

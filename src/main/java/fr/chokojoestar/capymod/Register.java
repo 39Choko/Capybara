@@ -2,6 +2,8 @@ package fr.chokojoestar.capymod;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.data.client.BlockStateModelGenerator;
+import net.minecraft.data.client.ModelIds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -21,6 +23,10 @@ public class Register {
 
    public static Item registerItem(String name, Item item) {
       return Registry.register(Registries.ITEM, new Identifier(CapyMod.MOD_ID, name), item);
+   }
+
+   public static void registerSpawnEggData(BlockStateModelGenerator BSModelGen, Item egg) {
+      BSModelGen.registerParentedItemModel(egg, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
    }
 
    public static Item registerSpawnEggItem(String name, EntityType<? extends MobEntity> entity, int primaryColor,
