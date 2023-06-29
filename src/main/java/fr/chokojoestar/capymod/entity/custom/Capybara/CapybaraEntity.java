@@ -104,9 +104,9 @@ public class CapybaraEntity extends TameableEntity implements GeoEntity {
 
       /* SITTING SYSTEM */
       if (!isBreedingItem(itemStack) && SITS.contains(item)) {
-        if (item == Items.STICK && item == Items.BAMBOO)
+        if (item == Items.STICK || item == Items.BAMBOO)
           decrementItem(player, itemStack, 1);
-          
+
         if (!this.getWorld().isClient()) {
           this.setSitting(!this.isSitting());
         }
