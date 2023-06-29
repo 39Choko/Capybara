@@ -43,7 +43,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 public class CapybaraEntity extends TameableEntity implements GeoEntity {
 
   private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(Items.MELON_SLICE, Items.CARROT);
-  private static final Set<Item> MOUNT = Sets.newHashSet(Items.STICK, Items.BAMBOO, CapyItems.STAFF);
+  private static final Set<Item> SITS = Sets.newHashSet(Items.STICK, Items.BAMBOO, CapyItems.STAFF);
   private AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
   public CapybaraEntity(EntityType<? extends TameableEntity> entityType, World world) {
@@ -96,14 +96,17 @@ public class CapybaraEntity extends TameableEntity implements GeoEntity {
       }
 
       /* RIDING SYSTEM */
-      if (!MOUNT.contains(item) && !isBreedingItem(itemStack)) {
+      if (!SITS.contains(item) && !isBreedingItem(itemStack)) {
         if (!this.getWorld().isClient())
           player.startRiding(this);
         return ActionResult.SUCCESS;
       }
 
       /* SITTING SYSTEM */
-      if (!isBreedingItem(itemStack) && MOUNT.contains(item)) {
+      if (!isBreedingItem(itemStack) && SITS.contains(item)) {
+        if (item == Items.STICK && item == Items.BAMBOO)
+          decrementItem(player, itemStack, 1);
+          
         if (!this.getWorld().isClient()) {
           this.setSitting(!this.isSitting());
         }
