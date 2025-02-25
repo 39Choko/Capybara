@@ -1,0 +1,45 @@
+{
+	"schemaVersion": 1,
+	"id": "capymod",
+	"version": "${version}",
+	"name": "Capybara Mod",
+	"description": "Add Capybara and new structure for Minecraft !",
+	"authors": [
+		"Choko",
+		"TemmmieChan",
+		"Gastoncks"
+	],
+	"contact": {
+		"homepage": "https://github.com/39Choko/Capybara",
+		"sources": "https://github.com/39Choko/Capybara/",
+		"issues": "https://github.com/39Choko/Capybara/issues"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/capymod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"fr.chokojoestar.capymod.Capybara"
+		],
+		"client": [
+			"fr.chokojoestar.capymod.CapybaraClient"
+		],
+		"fabric-datagen": [
+			"fr.chokojoestar.capymod.CapybaraDataGenerator"
+		]
+	},
+	"mixins": [
+		"capymod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"update_checker": true
+		}
+	}
+}

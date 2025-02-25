@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": "minecraft:iron_nugget",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "S  ",
+    " I ",
+    "  S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "capymod:staff"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "capymod:mangrove_ruine",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 839392001,
+    "spacing": 10,
+    "separation": 5
+  }
+}
