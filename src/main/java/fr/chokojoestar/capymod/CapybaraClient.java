@@ -1,7 +1,7 @@
 package fr.chokojoestar.capymod;
 
-import fr.chokojoestar.capymod.client.render.CapybaraRenderer;
-import fr.chokojoestar.capymod.client.render.model.CapybaraModel;
+import fr.chokojoestar.capymod.client.render.CapybaraEntityRenderer;
+import fr.chokojoestar.capymod.client.render.model.CapybaraEntityModel;
 import fr.chokojoestar.capymod.entity.CapyEntities;
 import fr.chokojoestar.capymod.entity.CapyModelLayers;
 import net.fabricmc.api.ClientModInitializer;
@@ -12,9 +12,12 @@ public class CapybaraClient implements ClientModInitializer{
 
    @Override
    public void onInitializeClient() {
-      EntityModelLayerRegistry.registerModelLayer(CapyModelLayers.CAPYABRA, CapybaraModel::getTexturedModelData);
-      EntityModelLayerRegistry.registerModelLayer(CapyModelLayers.CAPYABRA_BABY, CapybaraModel::getTexturedModelData);
-      EntityRendererRegistry.register(CapyEntities.CAPYBARA, CapybaraRenderer::new);
+      EntityModelLayerRegistry.registerModelLayer(CapyModelLayers.CAPYABRA, CapybaraEntityModel::getTexturedModelData);
+      EntityModelLayerRegistry.registerModelLayer(CapyModelLayers.CAPYABRA_BABY, CapybaraEntityModel::getTexturedModelData);
+      EntityModelLayerRegistry.registerModelLayer(CapyModelLayers.CAPYBARA_SADDLE, CapybaraEntityModel::getTexturedModelData);
+      EntityModelLayerRegistry.registerModelLayer(CapyModelLayers.CAPYBARA_BABY_SADDLE, CapybaraEntityModel::getTexturedModelData);
+
+      EntityRendererRegistry.register(CapyEntities.CAPYBARA, CapybaraEntityRenderer::new);
    
    }
    

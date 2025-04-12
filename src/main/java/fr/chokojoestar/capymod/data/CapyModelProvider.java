@@ -19,7 +19,7 @@ public class CapyModelProvider extends FabricModelProvider {
    @Override
    public void generateItemModels(ItemModelGenerator itemModelGenerator) {
       itemModelGenerator.register(CapyItems.STAFF);
-      itemModelGenerator.registerSpawnEgg(CapyItems.CAPYBARA_SPAWN_EGG, 0x44311E, 0x2A2117);
+      itemModelGenerator.register(CapyItems.CAPYBARA_SPAWN_EGG);
    }
 
 }
