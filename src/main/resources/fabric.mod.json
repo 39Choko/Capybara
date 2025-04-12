@@ -14,7 +14,7 @@
 		"sources": "https://github.com/39Choko/Capybara/",
 		"issues": "https://github.com/39Choko/Capybara/issues"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/capymod/icon.png",
 	"environment": "*",
 	"entrypoints": {
