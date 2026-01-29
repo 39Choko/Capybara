@@ -2,7 +2,7 @@ package fr.chokojoestar.capymod.client.render.animation;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.entity.animation.Animation;
+import net.minecraft.client.render.entity.animation.AnimationDefinition;
 import net.minecraft.client.render.entity.animation.AnimationHelper;
 import net.minecraft.client.render.entity.animation.Keyframe;
 import net.minecraft.client.render.entity.animation.Transformation;
@@ -13,7 +13,7 @@ public class CapybaraEntityAnimations {
   public CapybaraEntityAnimations() {
   }
 
-  public static final Animation WALKING = Animation.Builder.create(1.5833F).looping()
+  public static final AnimationDefinition WALKING = AnimationDefinition.Builder.create(1.5833F).looping()
       .addBoneAnimation("leg1", new Transformation(Transformation.Targets.ROTATE,
           new Keyframe(0.0F, AnimationHelper.createRotationalVector(0.0F, 0.0F, 0.0F),
               Transformation.Interpolations.LINEAR),
@@ -68,7 +68,7 @@ public class CapybaraEntityAnimations {
               Transformation.Interpolations.LINEAR)))
       .build();
 
-  public static final Animation SITTING = Animation.Builder.create(1.1667F)
+  public static final AnimationDefinition SITTING = AnimationDefinition.Builder.create(1.1667F)
       .addBoneAnimation("leg1", new Transformation(Transformation.Targets.ROTATE,
           new Keyframe(0.0F, AnimationHelper.createRotationalVector(0.0F, 0.0F, 0.0F),
               Transformation.Interpolations.LINEAR),
@@ -126,16 +126,7 @@ public class CapybaraEntityAnimations {
               Transformation.Interpolations.LINEAR)))
       .build();
 
-  public static final Animation IDLING = Animation.Builder.create(3.0F)
-      .addBoneAnimation("head2", new Transformation(Transformation.Targets.ROTATE,
-          new Keyframe(0.0F, AnimationHelper.createRotationalVector(0.0F, 0.0F, 0.0F),
-              Transformation.Interpolations.LINEAR)))
-      .addBoneAnimation("head2", new Transformation(Transformation.Targets.MOVE_ORIGIN,
-          new Keyframe(0.0F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F),
-              Transformation.Interpolations.LINEAR)))
-      .addBoneAnimation("head2", new Transformation(Transformation.Targets.SCALE,
-          new Keyframe(0.0F, AnimationHelper.createScalingVector(1.0F, 1.0F, 1.0F),
-              Transformation.Interpolations.LINEAR)))
+  public static final AnimationDefinition IDLING = AnimationDefinition.Builder.create(3.0F)
       .addBoneAnimation("leg1", new Transformation(Transformation.Targets.ROTATE,
           new Keyframe(0.0F, AnimationHelper.createRotationalVector(0.0F, 0.0F, 0.0F),
               Transformation.Interpolations.LINEAR)))

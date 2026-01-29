@@ -5,14 +5,21 @@ import fr.chokojoestar.capymod.client.render.state.CapybaraEntityRenderState;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.model.*;
+import net.minecraft.client.render.entity.animation.Animation;
 import net.minecraft.client.render.entity.model.EntityModel;
 
 @Environment(EnvType.CLIENT)
 public class CapybaraEntityModel extends EntityModel<CapybaraEntityRenderState> {
+	private final Animation walkingAnimation;
+	private final Animation sittingAnimation;
+	private final Animation idlingAnimation;
 
 	public CapybaraEntityModel(ModelPart root) {
-    super(root);
-  }
+		super(root);
+		this.walkingAnimation = CapybaraEntityAnimations.WALKING.createAnimation(root);
+		this.sittingAnimation = CapybaraEntityAnimations.SITTING.createAnimation(root);
+		this.idlingAnimation = CapybaraEntityAnimations.IDLING.createAnimation(root);
+	}
 
 	@SuppressWarnings("unused")
 	public static TexturedModelData getTexturedModelData() {
@@ -84,22 +91,22 @@ public class CapybaraEntityModel extends EntityModel<CapybaraEntityRenderState> 
 	@Override
 	public void setAngles(CapybaraEntityRenderState state) {
 		super.setAngles(state);
-		this.animateWalking(CapybaraEntityAnimations.WALKING, state.limbSwingAnimationProgress,
+		this.walkingAnimation.applyWalking(state.limbSwingAnimationProgress,
 				state.limbSwingAmplitude,
 				2.0F,
 				2.5F);
 		this.updateVisibility(state);
-		this.animate(state.sittingAnimationState, CapybaraEntityAnimations.SITTING, state.age, 1.0F);
-		this.animate(state.idlingAnimationState, CapybaraEntityAnimations.IDLING, state.age, 1.0F);
+		this.sittingAnimation.apply(state.sittingAnimationState, state.age, 1.0F);
+		this.idlingAnimation.apply(state.idlingAnimationState, state.age, 1.0F);
 	}
 
 	private void updateVisibility(CapybaraEntityRenderState state) {
 		boolean isSaddled = !(state.saddleStack.isEmpty());
 
-		if(isSaddled) {
+		if (isSaddled) {
 			root.getChild("saddle").hidden = false;
 		} else {
 			root.getChild("saddle").hidden = true;
-		} 
+		}
 	}
 }
